@@ -2,7 +2,7 @@ import { html } from "../gaslight.js";
 import { HeadMeta } from "./head_meta.js";
 
 export const Document = (props) => {
-  const { title, styles, scripts, modules, children } = props;
+  const { title, styles, scripts, modules, body_class, children } = props;
   return html`<html lang="en">
     <head>
       <meta charset="utf-8" />
@@ -21,7 +21,7 @@ export const Document = (props) => {
       )}
       <${HeadMeta} title=${title} />
     </head>
-    <body>
+    <body class=${body_class}>
       ${children}
       ${scripts &&
       scripts.map((path, index) =>

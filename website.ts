@@ -1,6 +1,7 @@
 import { PathParams, json, serve } from "./sift.ts";
 import { ErrorPage } from "./elements/errorpage.js";
 import { HomePage } from "./elements/homepage.js";
+import { LoginPage } from "./elements/page/login.js";
 import { URL_BASE } from "./config.ts";
 import { html } from "./gaslight.js";
 
@@ -63,7 +64,20 @@ export const renderPage = (Page: any, props?: any) => {
 };
 
 serve({
-  "/": () => renderPage(HomePage, { children: html`<p>Welcome MNESSAGE</p>` }),
+  "/": (r, p) =>
+    renderPage(HomePage, {
+      url: r.url,
+      title: "Gaslight",
+      cannonical: "https://gaslight.dev",
+      description: "Something",
+    }),
+  "/login": (r, p) =>
+    renderPage(LoginPage, {
+      url: r.url,
+      title: "Login",
+      cannonical: "https://gaslight.dev/login",
+      description: "Login Here",
+    }),
   "/json": () => json({ is: "a_webserver" }),
   "/favicon.ico": serveStatic("public/favicon.ico"),
   "/js/:filename+": serveStatic("public/js"),

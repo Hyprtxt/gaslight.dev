@@ -13,7 +13,8 @@ const MenuLink = ({ href, url, children }) => {
 };
 
 export const Layout = (props) => {
-  const { children, styles, scripts, modules, active, title, url } = props;
+  const { children, styles, scripts, modules, active, title, url, body_class } =
+    props;
   const base_styles = ["/css/style.css"];
   const base_scripts = [];
   const base_modules = [];
@@ -26,10 +27,11 @@ export const Layout = (props) => {
       styles=${render_styles}
       scripts=${render_scripts}
       modules=${render_modules}
+      body_class=${body_class}
     >
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">gaslight.dev</a>
+          <a class="navbar-brand" href="/">gaslight.dev</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -44,10 +46,13 @@ export const Layout = (props) => {
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <${MenuLink} href="#">Link<//>
+                <${MenuLink} href="/login">Login<//>
+              </li>
+              <li class="nav-item">
+                <${MenuLink} href="/private">Private<//>
               </li>
               <li class="nav-item">
                 <a

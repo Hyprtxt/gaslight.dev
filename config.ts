@@ -16,6 +16,4 @@ if (URL_BASE === undefined) {
   URL_BASE = isLocalMode() ? "http://localhost:8081" : "https://gaslight.dev";
 }
 
-const GTM_ID = "GTM-MTZBBFX";
-
-export { API_BASE, COOKIE_DOMAIN, URL_BASE, GTM_ID };
+export { API_BASE, COOKIE_DOMAIN, URL_BASE };

@@ -26,4 +26,6 @@ const getToken = (r: Request) => {
   return token;
 };
 
-export { COOKIE_SETTINGS, deleteCookie, getCookies, setCookie, getToken };
+// const validateToken = () => {}
+
+export { COOKIE_SETTINGS, deleteCookie, setCookie, getToken };
