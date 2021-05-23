@@ -80,6 +80,8 @@ serve({
     }),
   "/json": () => json({ is: "a_webserver" }),
   "/favicon.ico": serveStatic("public/favicon.ico"),
+  "/bootstrap/:filename+": serveStatic("node_modules/bootstrap"),
+  "/bootstrap-icons/:filename+": serveStatic("node_modules/bootstrap-icons"),
   "/js/:filename+": serveStatic("public/js"),
   "/css/:filename+": serveStatic("public/css"),
   404: () => json({ is: "not_found" }, { status: 404 }),

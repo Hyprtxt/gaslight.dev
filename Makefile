@@ -3,7 +3,7 @@ welcome:
 run: 
 	deployctl run --libs=ns,fetchevent --watch website.ts
 static:
-	deno run --quiet --allow-read --allow-net https://deno.land/std/http/file_server.ts . --cors --port 8081 --no-dotfiles
+	deno run --quiet --allow-read --allow-net https://deno.land/std/http/file_server.ts . --cors -e --port 8081 --no-dotfiles
 develop:
 	make static &
 	make run
